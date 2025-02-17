@@ -10,14 +10,14 @@ async function bootstrap() {
   app.use(cookieParser())
 
   app.enableCors({
-    origin: "",
+    origin: "*",
   });
 
-  app.useGlobalPipes(
-    new ValidationPipe({
-      transform: true,
-    }),
-  )
+  // app.useGlobalPipes(
+  //   new ValidationPipe({
+  //     transform: true,
+  //   }),
+  // )
 
   const config = new DocumentBuilder()
     .setTitle('LATIHAN NEST JS KELAS - B')

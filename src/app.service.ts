@@ -60,7 +60,7 @@ export class AppService {
       });
       if (user != null) throw new BadRequestException('Username Sudah Ada');
 
-      const hash = hashSync(data.Password, 10);
+      const hash = hashSync(data.password, 10);
       const newUser = await prisma.user.create({
         data: {
           username: data.username,
@@ -70,6 +70,8 @@ export class AppService {
       });
       return newUser;
     } catch (err) {
+      console.log(err)
+      if(err instanceof HttpException) throw err
       throw new InternalServerErrorException('Ada Masalah Pada Server');
     }
   }
@@ -98,7 +100,7 @@ export class AppService {
       });
       if (user == null) throw new NotFoundException('Username Tidak Ditemukan');
 
-      const isPasswordValid = compareSync(data.Password, user.password);
+      const isPasswordValid = compareSync(data.password, user.password);
       if (!isPasswordValid) throw new BadRequestException('Password Salah');
 
       const payload = {
@@ -112,6 +114,7 @@ export class AppService {
         user,
       };
     } catch (err) {
+      if(err instanceof HttpException) throw err
       throw new InternalServerErrorException('Ada Masalah Pada Server');
     }
   }
