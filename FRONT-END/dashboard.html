@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="login.html" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="tips">
+            <h2>Daftar Anggota Kelompok 6</h2>
+            <ul>
+                <li>Mar'atul Azizah.</li>
+                <li>Andi Angke Reona Megawan.</li>
+                <li>Alya Ananda.</li>
+                <li>Alizha Nur Arspandy.</li>
+                <li>A Fachri.</li>
+                <li>Dia Rahmatillah.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Kelompok 6. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function logout() {
+            alert("Anda telah logout.");
+            window.location.href = "login.html"; // Kembali ke halaman login
+        }
+    </script>
+</body>
+</html>
